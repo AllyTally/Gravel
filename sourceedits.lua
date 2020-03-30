@@ -4,15 +4,15 @@ sourceedits =
 	{
 		{
 			find = [[
-		elseif selectedtool == 17 then
-			-- Start point
-			displayshapedcursor(0, 0, 1, 2)
+		elseif selectedtool == 20 then
+			-- Teleporter
+			displayshapedcursor(0, 0, 11, 11)
 ]],
 			replace = [[
-		elseif selectedtool == 17 then
-			-- Start point
-			displayshapedcursor(0, 0, 1, 2)
-		elseif selectedtool == 18 then
+		elseif selectedtool == 20 then
+			-- Teleporter
+			displayshapedcursor(0, 0, 11, 11)
+		elseif selectedtool == 21 then
 			-- Gravel fill
 			displayshapedcursor(0, 0, 0, 0)
 ]],
@@ -22,10 +22,10 @@ sourceedits =
 		},
 		{
 		find = [[
-		for t = 1, 17 do
+		for t = 1, 20 do
 ]],
 		replace = [[
-		for t = 1, 18 do
+		for t = 1, 21 do
 ]],
 		ignore_error = false,
 		luapattern = false,
@@ -36,7 +36,7 @@ sourceedits =
 		elseif love.mouse.isDown("l") and not mousepressed then
 ]],
 		replace = [[
-        elseif love.mouse.isDown("l") and not mousepressed and selectedtool == 18 then
+        elseif love.mouse.isDown("l") and not mousepressed and selectedtool == 21 then
             -- Fill bucket
             gravel_usex = atx
             gravel_usey = aty
@@ -52,18 +52,18 @@ sourceedits =
 	{
 		{
 			find = [[
-	for t = 1, 17 do
+	for t = 1, 20 do
 		toolimg[t] = love.graphics.newImage("tools/" .. t .. ".png")
 		toolimgicon[t] = love.image.newImageData("tools2/on/" .. t .. ".png")
 	end
 ]],
 		    replace = [[
-	for t = 1, 17 do
+	for t = 1, 20 do
 		toolimg[t] = love.graphics.newImage("tools/" .. t .. ".png")
         toolimgicon[t] = love.image.newImageData("tools2/on/" .. t .. ".png")
 	end
-	toolimg[18] = love.graphics.newImage(gravel_path .. "18.png")
-	toolimgicon[18] = love.image.newImageData(gravel_path .. "18i.png")
+	toolimg[21] = love.graphics.newImage(gravel_path .. "gravel.png")
+	toolimgicon[21] = love.image.newImageData(gravel_path .. "graveli.png")
 ]],
 			ignore_error = false,
 			luapattern = false,
@@ -74,10 +74,10 @@ sourceedits =
 	{
 		{
 			find = [[
-toolshortcuts = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "R", "T", "Y", "U", "I", "O", "P"}
+toolshortcuts = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "R", "T", "Y", "U", "I", "O", "P", "s1", "s2", "s3"}
 ]],
 		    replace = [[
-toolshortcuts = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "R", "T", "Y", "U", "I", "O", "P", "G"}
+toolshortcuts = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "R", "T", "Y", "U", "I", "O", "P", "s1", "s2", "s3", "A"}
 ]],
 			ignore_error = false,
 			luapattern = false,
@@ -89,13 +89,17 @@ toolshortcuts = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "R", "T", "Y", "U", "I", "O", "P"
 		{ 
 			find = [[
 function lefttoolscrollbounds()
-	if (lefttoolscroll < -368) then
-		lefttoolscroll = -368
+	local max_scroll = 368
+	if metadata.target == "VCE" then
+		max_scroll = 512
+	end
 ]],
 		    replace = [[
 function lefttoolscrollbounds()
-	if (lefttoolscroll < -416) then
-		lefttoolscroll = -416
+	local max_scroll = 416
+	if metadata.target == "VCE" then
+		max_scroll = 560
+	end
 ]],
 			ignore_error = false,
 			luapattern = false,
@@ -103,10 +107,10 @@ function lefttoolscrollbounds()
         },
 		{
 			find = [[
-		selectedtool = 1; selectedsubtool = {1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1,1}
+		selectedtool = 1; selectedsubtool = {1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1,1, 1,1,1}
 ]],
 		    replace = [[
- 		selectedtool = 1; selectedsubtool = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+ 		selectedtool = 1; selectedsubtool = {1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1,1, 1,1,1, 1}
 ]],
 			ignore_error = false,
 			luapattern = false,

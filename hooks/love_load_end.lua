@@ -1,6 +1,6 @@
-toolnames[18]       = "Gravel fill"
-subtoolnames[18]    = {}
-subtoolimgs[18]     = {}
+toolnames[21]       = "Gravel fill"
+subtoolnames[21]    = {}
+subtoolimgs[21]     = {}
 gravel_usex         = 0
 gravel_usey         = 0
 
@@ -40,7 +40,7 @@ function handle_fill(button, fields)
             return
         end
     end
-    levelmetadata[(roomy)*20 + (roomx+1)].directmode = 1
+    levelmetadata_set(roomx, roomy, "directmode", 1)
     atx = gravel_usex
     aty = gravel_usey
     local oldtile = roomdata[roomy][roomx][aty*40+atx+1]
