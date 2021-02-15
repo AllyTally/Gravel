@@ -1,6 +1,6 @@
-toolnames[21]       = "Gravel fill"
-subtoolnames[21]    = {}
-subtoolimgs[21]     = {}
+toolnames[18]       = "Gravel fill"
+subtoolnames[18]    = {}
+subtoolimgs[18]     = {}
 gravel_usex         = 0
 gravel_usey         = 0
 
