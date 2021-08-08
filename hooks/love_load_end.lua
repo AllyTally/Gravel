@@ -34,11 +34,16 @@ function handle_fill(button, fields)
         return
     end
     inputd = string.split(fields.inputdata,",")
+    local invalidinput = #inputd <= 0
     for a = 1, #inputd do
         if not tonumber(inputd[a]) then
-            dialog.create("Something you passed wasn't a number! Please make sure they're all numbers, and no trailing comma.")
-            return
+            invalidinput = true
+            break
         end
+    end
+    if invalidinput then
+        dialog.create("Something you passed wasn't a number! Please make sure they're all numbers, and no trailing comma.")
+        return
     end
     levelmetadata_set(roomx, roomy, "directmode", 1)
     atx = gravel_usex
