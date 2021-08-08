@@ -4,7 +4,7 @@ t.shortname = "Gravel"  -- The name that will be displayed on the button in the 
 t.longname = "Gravel - Randomize Fill"  -- This can be about twice as long
 t.author = "AllyTally"  -- Your name
 t.version = "1.3"  -- The current version of this plugin, can be anything you want
-t.minimumved = "1.8.4"  -- The minimum version of Ved this plugin is designed to work with. If unsure, just use the latest version.
+t.minimumved = "1.9.0"  -- The minimum version of Ved this plugin is designed to work with. If unsure, just use the latest version.
 t.description = [[
 This plugin adds another fill bucket, except this one lets you mix in a
 few random tiles.
