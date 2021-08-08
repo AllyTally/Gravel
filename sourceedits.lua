@@ -40,7 +40,7 @@ sourceedits =
             -- Fill bucket
             gravel_usex = atx
             gravel_usey = aty
-            dialog.create("Enter tile numbers with each tile separated by a comma. Example: 0,0,0,12,25", {DB.APPLY, DB.CANCEL}, handle_fill, "Gravel fill", {{"inputdata", 0, 3, 40, "", DF.TEXT}})
+            dialog.create("Enter tile numbers with each tile separated by a comma. Example: 0,0,0,12,25", {DB.OK, DB.CANCEL}, handle_fill, "Gravel fill", {{"inputdata", 0, 3, 40, "", DF.TEXT}})
 		elseif love.mouse.isDown("l") and not mousepressed then
 ]],
 		ignore_error = false,
