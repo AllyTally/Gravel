@@ -43,6 +43,7 @@ function handle_fill(button, fields)
     levelmetadata_set(roomx, roomy, "directmode", 1)
     atx = gravel_usex
     aty = gravel_usey
+    local previoustiles = table.copy(roomdata_get(roomx, roomy))
     local oldtile = roomdata[roomy][roomx][aty*40+atx+1]
     local tilesarea, i = {{atx, aty}}, 1
     while tilesarea[i] ~= nil and i < 1200 do
@@ -57,4 +58,15 @@ function handle_fill(button, fields)
         end
         i = i + 1
     end
+    table.insert(
+        undobuffer,
+        {
+            undotype = "tiles",
+            rx = roomx,
+            ry = roomy,
+            toundotiles = previoustiles,
+            toredotiles = table.copy(roomdata_get(roomx, roomy))
+        }
+    )
+    finish_undo("GRAVEL PLUGIN")
 end
