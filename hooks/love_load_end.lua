@@ -34,15 +34,21 @@ function handle_fill(button, fields)
         return
     end
     inputd = string.split(fields.inputdata,",")
+    local invalidinput = #inputd <= 0
     for a = 1, #inputd do
         if not tonumber(inputd[a]) then
-            dialog.create("Something you passed wasn't a number! Please make sure they're all numbers, and no trailing comma.")
-            return
+            invalidinput = true
+            break
         end
+    end
+    if invalidinput then
+        dialog.create("Something you passed wasn't a number! Please make sure they're all numbers, and no trailing comma.")
+        return
     end
     levelmetadata_set(roomx, roomy, "directmode", 1)
     atx = gravel_usex
     aty = gravel_usey
+    local previoustiles = table.copy(roomdata_get(roomx, roomy))
     local oldtile = roomdata[roomy][roomx][aty*40+atx+1]
     local tilesarea, i = {{atx, aty}}, 1
     while tilesarea[i] ~= nil and i < 1200 do
@@ -57,4 +63,15 @@ function handle_fill(button, fields)
         end
         i = i + 1
     end
+    table.insert(
+        undobuffer,
+        {
+            undotype = "tiles",
+            rx = roomx,
+            ry = roomy,
+            toundotiles = previoustiles,
+            toredotiles = table.copy(roomdata_get(roomx, roomy))
+        }
+    )
+    finish_undo("GRAVEL PLUGIN")
 end
