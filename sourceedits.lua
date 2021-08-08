@@ -54,13 +54,13 @@ sourceedits =
 			find = [[
 	for t = 1, 17 do
 		toolimg[t] = love.graphics.newImage("tools/" .. t .. ".png")
-		toolimgicon[t] = love.image.newImageData("tools2/on/" .. t .. ".png")
+		toolimgicon[t] = love.image.newImageData("tools/prepared/" .. t .. ".png")
 	end
 ]],
 		    replace = [[
 	for t = 1, 17 do
 		toolimg[t] = love.graphics.newImage("tools/" .. t .. ".png")
-        toolimgicon[t] = love.image.newImageData("tools2/on/" .. t .. ".png")
+        toolimgicon[t] = love.image.newImageData("tools/prepared/" .. t .. ".png")
 	end
 	toolimg[18] = love.graphics.newImage(gravel_path .. "gravel.png")
 	toolimgicon[18] = love.image.newImageData(gravel_path .. "graveli.png")
