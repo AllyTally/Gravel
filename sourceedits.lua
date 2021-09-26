@@ -54,13 +54,13 @@ sourceedits =
 			find = [[
 	for t = 1, 17 do
 		toolimg[t] = love.graphics.newImage("tools/" .. t .. ".png")
-		toolimgicon[t] = love.image.newImageData("tools2/on/" .. t .. ".png")
+		toolimgicon[t] = love.image.newImageData("tools/prepared/" .. t .. ".png")
 	end
 ]],
 		    replace = [[
 	for t = 1, 17 do
 		toolimg[t] = love.graphics.newImage("tools/" .. t .. ".png")
-        toolimgicon[t] = love.image.newImageData("tools2/on/" .. t .. ".png")
+        toolimgicon[t] = love.image.newImageData("tools/prepared/" .. t .. ".png")
 	end
 	toolimg[18] = love.graphics.newImage(gravel_path .. "gravel.png")
 	toolimgicon[18] = love.image.newImageData(gravel_path .. "graveli.png")
@@ -74,10 +74,10 @@ sourceedits =
 	{
 		{
 			find = [[
-toolshortcuts = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "R", "T", "Y", "U", "I", "O", "P"}
+toolshortcuts = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "R", "T", "Y", "U", "I", "O", "P"}
 ]],
 		    replace = [[
-toolshortcuts = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0, "R", "T", "Y", "U", "I", "O", "P", "A"}
+toolshortcuts = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "R", "T", "Y", "U", "I", "O", "P", "A"}
 ]],
 						ignore_error = false,
 			luapattern = false,
