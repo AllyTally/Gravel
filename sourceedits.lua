@@ -31,6 +31,9 @@ sourceedits =
 		luapattern = false,
 		allowmultiple = false,
         },
+	},
+	["tool_mousedown"] =
+	{
 		{
 		find = [[
 		elseif love.mouse.isDown("l") and not mousepressed then
